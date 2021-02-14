@@ -33,3 +33,14 @@
 show history hover squares
   </li>
   </ul>
+
+## Requirements:
+
+<ul>
+  <li>
+    Use React / Vue / Angular 2+
+  </li>
+  <li>
+    The result of the work should be a link to the repository
+  </li>
+  </ul>
