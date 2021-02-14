@@ -10,6 +10,10 @@ export const App = () => {
       .then(res => setMode(res))
   }
 
+  fetch('http://demo1030918.mockable.io/')
+    .then(res => res.json())
+    .then(res => console.log(res.map(res)))
+
   useEffect(() => {
     apiBase('http://demo1030918.mockable.io/')
   }, [])
@@ -28,14 +32,15 @@ export const App = () => {
             </select>
             <button type="button" className="btn btn-info">START</button>
           </div>
-          <div className='field'>
-
-          </div>
-          <div className="history">
-            <h3>History</h3>
-          </div>
+          <Field />
         </div>
       </div>
     </div>
+  </>
+}
+
+const Field = mode => {
+  console.log(mode);
+  return <>
   </>
 }
