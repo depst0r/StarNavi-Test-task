@@ -14,6 +14,7 @@ export const App = () => {
     apiBase('http://demo1030918.mockable.io/')
   }, [])
 
+
   return <>
     <div className="container">
       <div className="row">
@@ -21,9 +22,9 @@ export const App = () => {
           <div className="header d-flex">
             <select className="form-select form-select-sm w-25" aria-label=".form-select-sm example">
               <option defaultValue>Pick Mode</option>
-              <option value='1'>One</option>
-              <option value='2'>Two</option>
-              <option value='3'>Three</option>
+              {mode ? Object.keys(mode).map((res, i) => (
+                <option value={res} key={i}>{res}</option>
+              )) : null}
             </select>
             <button type="button" className="btn btn-info">START</button>
           </div>
