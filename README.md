@@ -16,8 +16,20 @@
 
 ## Work description:
 
-user set app mode
-press START
-if the user to hover on the square - he turns blue
-is user move from the square - he turns white
+<ul>
+  <li>
+    user set app mode
+  </li>
+  <li>
+    press START
+  </li>
+  <li>
+    if the user to hover on the square - he turns blue
+  </li>
+  <li>
+    is user move from the square - he turns white
+  </li>
+  <li>   
 show history hover squares
+  </li>
+  </ul>
