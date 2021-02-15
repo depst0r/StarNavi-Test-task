@@ -1,5 +1,5 @@
 {
-  "name": "task",
+  "name": "test-task",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -35,5 +35,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/depst0r/StarNavi-Test-task.git",
+  "author": "depst0r <depstor90@gmail.com>",
+  "license": "MIT"
 }
