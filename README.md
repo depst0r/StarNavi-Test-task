@@ -21,7 +21,7 @@
     User set app mode
   </li>
   <li>
-    press START
+    Press START
   </li>
   <li>
     If the user to hover on the square - he turns blue
@@ -30,7 +30,7 @@
     Is user move from the square - he turns white
   </li>
   <li>   
-Show history hover squares
+    Show history hover squares
   </li>
   </ul>
 
