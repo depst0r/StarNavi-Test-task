@@ -3,14 +3,14 @@
 ## To successful passing of our test you should handle with following criterions:
 <ul>
   <li>
-    the app MUST work without errors
+    The app MUST work without errors
   </li>
   <li>
-    presets for app mode you can fetch using this endpoint http://demo1030918.mockable.io/. This is should be request to the server NOT just copy paste of data.
+    Presets for app mode you can fetch using this endpoint http://demo1030918.mockable.io/. This is should be request to the server NOT just copy paste of data.
   </li>
   <li>
     This data is array of objects with field:<br>
-    field - contain size of app field. Should be square form
+    Field - contain size of app field. Should be square form
   </li>
   </ul>
 
@@ -18,19 +18,19 @@
 
 <ul>
   <li>
-    user set app mode
+    User set app mode
   </li>
   <li>
     press START
   </li>
   <li>
-    if the user to hover on the square - he turns blue
+    If the user to hover on the square - he turns blue
   </li>
   <li>
-    is user move from the square - he turns white
+    Is user move from the square - he turns white
   </li>
   <li>   
-show history hover squares
+Show history hover squares
   </li>
   </ul>
 
