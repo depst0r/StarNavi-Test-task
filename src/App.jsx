@@ -47,20 +47,12 @@ const Field = field => {
       )
     }
 
-    console.log(fieldCounter)
-
-    const f = {f: 10}
-const t = () => {
-  for(let i = 1; i < f.f; i++) {
-  <div 
+   const div = <div 
     className="square" 
-    key={i}  
-    data-col={`col ${i}`} 
-    data-row={`row ${i}`} 
     onMouseOver={e => console.log(e.target.dataset.col, e.target.dataset.row)}>
     </div>
-  }
-}
+    const arr = new Array(fieldCounter.field).fill(div)
+
 
 
   return <>
@@ -73,8 +65,9 @@ const t = () => {
       </button>
 
   <div className="field">
-     {/* <div className="square"  data-col='col-1' data-row='row-1' onMouseOver={e => console.log(e.target.dataset.col, e.target.dataset.row)}></div> */}
-     {t()}
+     {arr.map(res => {
+       return res
+     })}
   </div>
   </>
 }
