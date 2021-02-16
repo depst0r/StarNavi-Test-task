@@ -52,7 +52,7 @@ const Field = field => {
     
 
 const t = () => {
-  for(let i = 0; i < f.f; i++) {
+  for(let i = 1; i < f.f; i++) {
    return <h1 key={i}>{i}</h1>
       
   }
@@ -69,7 +69,7 @@ const t = () => {
       </button>
 
   <div className="field">
-     <div className="square"  data='col-1' onMouseOver={e => console.log(e.target.attributes.data.nodeValue)}></div>
+     <div className="square"  data-col='col-1' onMouseOver={e => console.log(e.target.dataset.col)}></div>
   </div>
   {t()}
   </>
