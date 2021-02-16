@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, createElement } from 'react'
 import './style.css'
 
 export const App = () => {
@@ -22,7 +22,7 @@ export const App = () => {
       <div className="row">
         <div className='wrapper'>
           <div className="header d-flex">
-            <select className="form-select form-select-sm w-25" onChange={e => e.target.value} aria-label="form-select-sm example">
+            <select className="form-select form-select-sm w-25" onChange={e => setSelectChoice(e.target.value)} aria-label="form-select-sm example">
               <option defaultValue>Pick Mode</option>
               {mode ? Object.keys(mode).map((res, i) =>( 
                 <option value={res} key={i}>{res}</option>
@@ -37,7 +37,6 @@ export const App = () => {
 }
 
 const Field = field => {
-
   const [fieldCounter, setFieldCounter] = useState('')
 
     const handleFielValue = () => {
@@ -48,13 +47,18 @@ const Field = field => {
       )
     }
 
-    const f = {f: 10}
-    
+    console.log(fieldCounter)
 
+    const f = {f: 10}
 const t = () => {
   for(let i = 1; i < f.f; i++) {
-   return <h1 key={i}>{i}</h1>
-      
+  <div 
+    className="square" 
+    key={i}  
+    data-col={`col ${i}`} 
+    data-row={`row ${i}`} 
+    onMouseOver={e => console.log(e.target.dataset.col, e.target.dataset.row)}>
+    </div>
   }
 }
 
@@ -69,8 +73,8 @@ const t = () => {
       </button>
 
   <div className="field">
-     <div className="square"  data-col='col-1' data-row='row-1' onMouseOver={e => console.log(e.target.dataset.col, e.target.dataset.row)}></div>
+     {/* <div className="square"  data-col='col-1' data-row='row-1' onMouseOver={e => console.log(e.target.dataset.col, e.target.dataset.row)}></div> */}
+     {t()}
   </div>
-  {t()}
   </>
 }
