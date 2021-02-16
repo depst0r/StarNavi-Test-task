@@ -1,19 +1,19 @@
-import React, { useState, useEffect, createElement } from "react";
+import React, { useState, useEffect } from "react"
 import "./style.css";
 
 export const App = () => {
-  const [mode, setMode] = useState(null);
-  const [selectChoice, setSelectChoice] = useState("");
+  const [mode, setMode] = useState(null)
+  const [selectChoice, setSelectChoice] = useState(null)
 
   const apiBase = (url) => {
     fetch(url)
       .then((res) => res.json())
-      .then((res) => setMode(res));
+      .then((res) => setMode(res))
   };
 
   useEffect(() => {
-    apiBase("http://demo1030918.mockable.io/");
-  }, []);
+    apiBase("http://demo1030918.mockable.io/")
+  }, [])
 
   return (
     <>
@@ -41,24 +41,27 @@ export const App = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-const Field = (field) => {
-  const [fieldCounter, setFieldCounter] = useState("");
+const Field = field => {
+  const [fieldCounter, setFieldCounter] = useState(null)
 
   const handleFielValue = () => {
-    Object.fromEntries(
-      Object.entries(field.state).map(([key, value]) => {
-        return [key === field.field ? setFieldCounter(value) : null];
-      })
-    );
-  };
+    if (field.state !== null) {
+      Object.fromEntries(
+        Object.entries(field.state).map(([key, value]) => {
+          return [key === field.field ? setFieldCounter(value) : null]
+        })
+      )
+    }else {
+      console.log('object')
+    }
+  }
 
-  const arr = new Array(fieldCounter.field).fill();
+  const arr = new Array(fieldCounter?.field).fill()
 
-  return (
-    <>
+  return <>
       <button
         type="button"
         className="btn btn-info"
@@ -77,7 +80,7 @@ const Field = (field) => {
               data-col={`row - ${i}`}
               data-row={`col - ${i}`}
               className="square"
-              onMouseOver={(e) =>
+              onMouseOver={e => 
                 console.log(e.target.dataset.col, e.target.dataset.row)
               }
             >
@@ -87,8 +90,14 @@ const Field = (field) => {
         })}
       </div>
       ) : (
-        <h1>Start</h1>
+        <h4>Select a difficulty and click start</h4>
       )}
     </>
-  );
-};
+}
+
+
+const Position = () => {
+  return<>
+
+  </>
+}
