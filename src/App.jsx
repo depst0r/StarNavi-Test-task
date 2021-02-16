@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import './style.css'
 
 export const App = () => {
 
@@ -15,32 +16,20 @@ export const App = () => {
     apiBase('http://demo1030918.mockable.io/')
   }, [])
 
-  // const uperCase = str => {
-  //   return str[0].toUpperCase() + str.slice(1)
-  // }
-
-  const handlerFielValue = (selectorValue, state) => {
-    Object.fromEntries(
-      Object.entries(state).map(([key, value]) => {
-        return [key === selectorValue ? console.log(value) : null]
-      })
-    )
-  }
 
   return <>
     <div className="container">
       <div className="row">
         <div className='wrapper'>
           <div className="header d-flex">
-            <select className="form-select form-select-sm w-25" onChange={e => handlerFielValue(e.target.value, mode)} aria-label="form-select-sm example">
+            <select className="form-select form-select-sm w-25" onChange={e => e.target.value} aria-label="form-select-sm example">
               <option defaultValue>Pick Mode</option>
               {mode ? Object.keys(mode).map((res, i) =>( 
                 <option value={res} key={i}>{res}</option>
               )) : null}
-            </select>
-            <button type="button" className="btn btn-info">START</button>
+            </select> 
           </div>
-          {/* <Field field={selectChoice} state={mode}/> */}
+          <Field field={selectChoice} state={mode}/>
         </div>
       </div>
     </div>
@@ -48,14 +37,40 @@ export const App = () => {
 }
 
 const Field = field => {
-    const handlerFielValue = () => {
+
+  const [fieldCounter, setFieldCounter] = useState('')
+
+    const handleFielValue = () => {
       Object.fromEntries(
         Object.entries(field.state).map(([key, value]) => {
-          return [key === field.field ? console.log(value) : null]
+          return [key === field.field ? setFieldCounter(value) : null]
         })
       )
     }
+
+    const f = {f: 10}
+    
+
+const t = () => {
+  for(let i = 0; i < f.f; i++) {
+   return <h1 key={i}>{i}</h1>
+      
+  }
+}
+
+
   return <>
-  <button onClick={() => handlerFielValue()}>hhhh</button>
+    <button 
+    type="button" 
+    className="btn btn-info"
+    onClick={() => handleFielValue()}
+    >
+      START
+      </button>
+
+  <div className="field">
+     <div className="square"  data='col-1' onMouseOver={e => console.log(e.target.attributes.data.nodeValue)}></div>
+  </div>
+  {t()}
   </>
 }
