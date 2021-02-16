@@ -69,7 +69,7 @@ const t = () => {
       </button>
 
   <div className="field">
-     <div className="square"  data-col='col-1' onMouseOver={e => console.log(e.target.dataset.col)}></div>
+     <div className="square"  data-col='col-1' data-row='row-1' onMouseOver={e => console.log(e.target.dataset.col, e.target.dataset.row)}></div>
   </div>
   {t()}
   </>
