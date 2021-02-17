@@ -48,11 +48,12 @@ export const App = () => {
   )
 }
 
-const FieldMode = selection => {
-  const [fieldCounter, setFieldCounter] = useState('0')
+
+const FieldMode = props => {
+  const [fieldCounter, setFieldCounter] = useState(0)
 
   const handleFielValue = () => {
-    setFieldCounter(selection.selection)
+    setFieldCounter(props.selection)
   }
 
 const arr = new Array(+fieldCounter).fill()
@@ -66,22 +67,22 @@ const arr = new Array(+fieldCounter).fill()
         START
       </button>
 
-      {fieldCounter !== '0' ? (
-        <div className="field d-flex">
+      {fieldCounter !== 0 ? (
+        <div className="field" >
         {arr.map((res, i) => {
           return (
             <>
-            <span 
-            class="border border-3"
-            style={squareStyle}
+            <div 
+            className="border border-3"
             key={i}
-            data-col={`row - ${i}`}
-            data-row={`col - ${i}`}
+            style={squareStyle}
+            data-row={`col - ${1}`}
+            data-col={`row - ${i + 1}`}
             onMouseOver={e => 
               console.log(e.target.dataset.col, e.target.dataset.row)
             }
             >
-            </span>
+            </div>
             </>
           )
         })}
