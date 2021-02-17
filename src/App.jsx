@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from "react"
 import "./style.css";
 
+const squareStyle = {
+  width: '50px',
+  height: '50px',
+  cursor: 'pointer',
+}
+
 export const App = () => {
   const [mode, setMode] = useState(null)
   const [selectChoice, setSelectChoice] = useState(null)
 
-  const apiBase = (url) => {
-    fetch(url)
+  useEffect(() => {
+      fetch('http://demo1030918.mockable.io/')
       .then((res) => res.json())
       .then((res) => setMode(res))
-  };
-
-  useEffect(() => {
-    apiBase("http://demo1030918.mockable.io/")
   }, [])
 
   return (
@@ -36,7 +38,7 @@ export const App = () => {
                   : null}
               </select>
             </div>
-            <Field field={selectChoice} state={mode} />
+            <Field selection={selectChoice} state={mode} />
           </div>
         </div>
       </div>
@@ -44,14 +46,14 @@ export const App = () => {
   )
 }
 
-const Field = field => {
+const Field = selection => {
   const [fieldCounter, setFieldCounter] = useState(null)
 
   const handleFielValue = () => {
-    if (field.state !== null) {
+    if (selection.state !== null) {
       Object.fromEntries(
-        Object.entries(field.state).map(([key, value]) => {
-          return [key === field.field ? setFieldCounter(value) : null]
+        Object.entries(selection.state).map(([key, value]) => {
+          return [key === selection.field ? setFieldCounter(value) : null]
         })
       )
     }else {
@@ -71,20 +73,21 @@ const Field = field => {
       </button>
 
       {fieldCounter ? (
-        <div className="field">
+        <div className="field d-flex">
         {arr.map((res, i) => {
           return (
             <>
-            <div
-              key={i}
-              data-col={`row - ${i}`}
-              data-row={`col - ${i}`}
-              className="square"
-              onMouseOver={e => 
-                console.log(e.target.dataset.col, e.target.dataset.row)
-              }
+            <span 
+            class="border border-3"
+            style={squareStyle}
+            key={i}
+            data-col={`row - ${i}`}
+            data-row={`col - ${i}`}
+            onMouseOver={e => 
+              console.log(e.target.dataset.col, e.target.dataset.row)
+            }
             >
-            </div>
+            </span>
             </>
           )
         })}
