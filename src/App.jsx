@@ -8,7 +8,7 @@ const squareStyle = {
 }
 
 export const App = () => {
-  const [mode, setMode] = useState(null)
+  const [mode, setMode] = useState('')
   const [selectChoice, setSelectChoice] = useState(null)
 
   useEffect(() => {
@@ -25,20 +25,22 @@ export const App = () => {
             <div className="header d-flex">
               <select
                 className="form-select form-select-sm w-25"
-                onChange={(e) => setSelectChoice(e.target.value)}
+                onChange={e => setSelectChoice(e.target.value)}
                 aria-label="form-select-sm example"
               >
                 <option defaultValue>Pick Mode</option>
-                {mode
-                  ? Object.keys(mode).map((res, i) => (
-                      <option value={res} key={i}>
-                        {res}
+                  {mode 
+                    ? Object.entries(mode).map(([key, value]) => (
+                      <option value={value.field} key={key}>
+                        {key}
                       </option>
-                    ))
-                  : null}
+                    )) : (
+                      null
+                    )
+                  }
               </select>
             </div>
-            <Field selection={selectChoice} state={mode} />
+            <FieldMode selection={selectChoice} />
           </div>
         </div>
       </div>
@@ -46,19 +48,11 @@ export const App = () => {
   )
 }
 
-const Field = selection => {
+const FieldMode = selection => {
   const [fieldCounter, setFieldCounter] = useState(null)
 
   const handleFielValue = () => {
-    if (selection.state !== null) {
-      Object.fromEntries(
-        Object.entries(selection.state).map(([key, value]) => {
-          return [key === selection.selection ? setFieldCounter(value) : null]
-        })
-      )
-    }else {
-      console.log('object')
-    }
+    setFieldCounter(selection.selection)
   }
 
   const arr = new Array(fieldCounter?.field).fill()
@@ -80,7 +74,7 @@ const Field = selection => {
             <span 
             class="border border-3"
             style={squareStyle}
-            key={res}
+            key={i}
             data-col={`row - ${i}`}
             data-row={`col - ${i}`}
             onMouseOver={e => 
@@ -99,8 +93,8 @@ const Field = selection => {
 }
 
 
-const Position = () => {
-  return<>
+// const Position = () => {
+//   return<>
 
-  </>
-}
+//   </>
+// }
