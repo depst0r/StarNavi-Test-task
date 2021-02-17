@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react"
 import "./style.css";
 
 const squareStyle = {
-  width: '50px',
-  height: '50px',
+  width: '25px',
+  height: '25px',
   cursor: 'pointer',
 }
 
@@ -59,6 +59,7 @@ const FieldMode = props => {
 const arr = new Array(+fieldCounter).fill()
 
   return <>
+    <Position />
       <button
         type="button"
         className="btn btn-info"
@@ -76,8 +77,8 @@ const arr = new Array(+fieldCounter).fill()
             className="border border-3"
             key={i}
             style={squareStyle}
-            data-row={`col - ${1}`}
-            data-col={`row - ${i + 1}`}
+            data-row={`row - ${1}`}
+            data-col={`col - ${i + 1}`}
             onMouseOver={e => 
               console.log(e.target.dataset.col, e.target.dataset.row)
             }
@@ -91,4 +92,12 @@ const arr = new Array(+fieldCounter).fill()
         <h4>Select a difficulty and click start</h4>
       )}
     </>
+}
+
+const Position = () => {
+  return<>
+  <div className="form-floating" style={{width: '25%'}}>
+  <textarea className="form-control" placeholder="Leave a comment here" id="floatingTextarea2"></textarea>
+</div>
+  </>
 }
