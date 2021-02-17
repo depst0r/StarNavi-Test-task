@@ -49,17 +49,23 @@ export const App = () => {
 }
 
 
-const FieldMode = props => {
+const FieldMode = ({selection}) => {
   const [fieldCounter, setFieldCounter] = useState(0)
-
+  const [position, setPosition] = useState(
+    {
+      row: '',
+      col: ''
+    }
+  )
+console.log(position)
   const handleFielValue = () => {
-    setFieldCounter(props.selection)
+    setFieldCounter(selection)
   }
 
 const arr = new Array(+fieldCounter).fill()
 
   return <>
-    <Position />
+    <Position value={position}/>
       <button
         type="button"
         className="btn btn-info"
@@ -82,7 +88,7 @@ const arr = new Array(+fieldCounter).fill()
             style={squareStyle}
             data-col={`col - ${i + 1}`}
             onMouseOver={e => 
-              console.log(e.target.dataset.col ,e.target.parentNode.dataset.row)}
+              setPosition({...position, row: e.target.parentNode.dataset.row ,col: e.target.dataset.col})}
             >
             </div>
             </>
@@ -95,10 +101,10 @@ const arr = new Array(+fieldCounter).fill()
     </>
 }
 
-const Position = props => {
+const Position = ({position}) => {
   return<>
   <div className="form-floating" style={{width: '25%'}}>
-  <textarea className="form-control"></textarea>
+  <textarea className="form-control" value={position}></textarea>
 </div>
   </>
 }
