@@ -53,7 +53,7 @@ const Field = selection => {
     if (selection.state !== null) {
       Object.fromEntries(
         Object.entries(selection.state).map(([key, value]) => {
-          return [key === selection.field ? setFieldCounter(value) : null]
+          return [key === selection.selection ? setFieldCounter(value) : null]
         })
       )
     }else {
@@ -80,7 +80,7 @@ const Field = selection => {
             <span 
             class="border border-3"
             style={squareStyle}
-            key={i}
+            key={res}
             data-col={`row - ${i}`}
             data-row={`col - ${i}`}
             onMouseOver={e => 
