@@ -8,8 +8,8 @@ const squareStyle = {
 }
 
 export const App = () => {
-  const [mode, setMode] = useState('')
-  const [selectChoice, setSelectChoice] = useState(null)
+  const [mode, setMode] = useState(null)
+  const [selectChoice, setSelectChoice] = useState(0)
 
   useEffect(() => {
       fetch('http://demo1030918.mockable.io/')
@@ -28,9 +28,9 @@ export const App = () => {
                 onChange={e => setSelectChoice(e.target.value)}
                 aria-label="form-select-sm example"
               >
-                <option defaultValue>Pick Mode</option>
+                <option defaultValue value={0}>Pick Mode</option>
                   {mode 
-                    ? Object.entries(mode).map(([key, value]) => (
+                    ? Object.entries(mode)?.map(([key, value]) => (
                       <option value={value.field} key={key}>
                         {key}
                       </option>
@@ -49,13 +49,13 @@ export const App = () => {
 }
 
 const FieldMode = selection => {
-  const [fieldCounter, setFieldCounter] = useState(null)
+  const [fieldCounter, setFieldCounter] = useState('0')
 
   const handleFielValue = () => {
     setFieldCounter(selection.selection)
   }
 
-  const arr = new Array(fieldCounter?.field).fill()
+const arr = new Array(+fieldCounter).fill()
 
   return <>
       <button
@@ -66,7 +66,7 @@ const FieldMode = selection => {
         START
       </button>
 
-      {fieldCounter ? (
+      {fieldCounter !== '0' ? (
         <div className="field d-flex">
         {arr.map((res, i) => {
           return (
@@ -91,10 +91,3 @@ const FieldMode = selection => {
       )}
     </>
 }
-
-
-// const Position = () => {
-//   return<>
-
-//   </>
-// }
