@@ -51,7 +51,6 @@ export const App = () => {
 
 const FieldMode = props => {
   const [fieldCounter, setFieldCounter] = useState(0)
-const [col, setCol] = useState('')
 
   const handleFielValue = () => {
     setFieldCounter(props.selection)
@@ -60,7 +59,7 @@ const [col, setCol] = useState('')
 const arr = new Array(+fieldCounter).fill()
 
   return <>
-    {/* <Position col={col}/> */}
+    <Position />
       <button
         type="button"
         className="btn btn-info"
@@ -73,9 +72,7 @@ const arr = new Array(+fieldCounter).fill()
         return (
           <div 
           className='d-flex'
-          // data-row={`row - ${i + 1}`}
-          // onMouseOver={e => 
-          //     console.log(e.target.dataset.row)}
+          data-row={`row - ${i + 1}`}
           >
         {arr.map((res, i) => {
           return (
@@ -85,7 +82,7 @@ const arr = new Array(+fieldCounter).fill()
             style={squareStyle}
             data-col={`col - ${i + 1}`}
             onMouseOver={e => 
-              console.log(e.target.dataset.col)}
+              console.log(e.target.dataset.col ,e.target.parentNode.dataset.row)}
             >
             </div>
             </>
@@ -98,10 +95,10 @@ const arr = new Array(+fieldCounter).fill()
     </>
 }
 
-// const Position = props => {
-//   return<>
-//   <div className="form-floating" style={{width: '25%'}}>
-//   <textarea className="form-control" value={props.col}></textarea>
-// </div>
-//   </>
-// }
+const Position = props => {
+  return<>
+  <div className="form-floating" style={{width: '25%'}}>
+  <textarea className="form-control"></textarea>
+</div>
+  </>
+}
