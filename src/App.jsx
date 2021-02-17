@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react"
 import "./style.css";
 
 const squareStyle = {
-  width: '25px',
-  height: '25px',
+  width: '30px',
+  height: '30px',
   cursor: 'pointer',
 }
 
@@ -51,6 +51,7 @@ export const App = () => {
 
 const FieldMode = props => {
   const [fieldCounter, setFieldCounter] = useState(0)
+const [col, setCol] = useState('')
 
   const handleFielValue = () => {
     setFieldCounter(props.selection)
@@ -59,7 +60,7 @@ const FieldMode = props => {
 const arr = new Array(+fieldCounter).fill()
 
   return <>
-    <Position />
+    {/* <Position col={col}/> */}
       <button
         type="button"
         className="btn btn-info"
@@ -67,37 +68,40 @@ const arr = new Array(+fieldCounter).fill()
       >
         START
       </button>
-
-      {fieldCounter !== 0 ? (
-        <div className="field" >
+      <div className='wrapper'>
+      {arr.map((res, i) => {
+        return (
+          <div 
+          className='d-flex'
+          // data-row={`row - ${i + 1}`}
+          // onMouseOver={e => 
+          //     console.log(e.target.dataset.row)}
+          >
         {arr.map((res, i) => {
           return (
             <>
             <div 
             className="border border-3"
-            key={i}
             style={squareStyle}
-            data-row={`row - ${1}`}
             data-col={`col - ${i + 1}`}
             onMouseOver={e => 
-              console.log(e.target.dataset.col, e.target.dataset.row)
-            }
+              console.log(e.target.dataset.col)}
             >
             </div>
             </>
           )
         })}
       </div>
-      ) : (
-        <h4>Select a difficulty and click start</h4>
-      )}
+        )
+      })}
+      </div>
     </>
 }
 
-const Position = () => {
-  return<>
-  <div className="form-floating" style={{width: '25%'}}>
-  <textarea className="form-control" placeholder="Leave a comment here" id="floatingTextarea2"></textarea>
-</div>
-  </>
-}
+// const Position = props => {
+//   return<>
+//   <div className="form-floating" style={{width: '25%'}}>
+//   <textarea className="form-control" value={props.col}></textarea>
+// </div>
+//   </>
+// }
