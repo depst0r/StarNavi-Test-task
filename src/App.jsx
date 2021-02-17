@@ -101,10 +101,11 @@ const arr = new Array(+fieldCounter).fill()
     </>
 }
 
-const Position = ({position}) => {
+const Position = ({value}) => {
+  console.log('dfgvre', value)
   return<>
   <div className="form-floating" style={{width: '25%'}}>
-  <textarea className="form-control" value={position}></textarea>
+  <textarea className="form-control" value={value.col + value.row}></textarea>
 </div>
   </>
 }
