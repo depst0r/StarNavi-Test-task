@@ -3,8 +3,8 @@ import React from "react";
 const overflove = {
   overflow: 'auto',
   width: '200px',
-  height: '100px',
-  border: '1px solid black',
+  height: '300px',
+  // border: '1px solid black',
 }
 
 export const Position = ({ coordinates }) => {

@@ -21,7 +21,9 @@ export const FieldMode = ({ selection }) => {
   console.log(position);
   return (
     <>
+      <div>
       <Position coordinates={position} />
+      </div>
       <button
         type="button"
         className="btn btn-info"
