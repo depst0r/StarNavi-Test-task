@@ -57,7 +57,7 @@ const FieldMode = ({selection}) => {
       col: ''
     }
   )
-console.log(position)
+
   const handleFielValue = () => {
     setFieldCounter(selection)
   }
@@ -65,7 +65,7 @@ console.log(position)
 const arr = new Array(+fieldCounter).fill()
 
   return <>
-    <Position value={position}/>
+    <Position coordinates={position}/>
       <button
         type="button"
         className="btn btn-info"
@@ -88,7 +88,7 @@ const arr = new Array(+fieldCounter).fill()
             style={squareStyle}
             data-col={`col - ${i + 1}`}
             onMouseOver={e => 
-              setPosition({...position, row: e.target.parentNode.dataset.row ,col: e.target.dataset.col})}
+              setPosition({...position, row: e.target.parentNode.dataset.row, col: e.target.dataset.col})}
             >
             </div>
             </>
@@ -101,11 +101,11 @@ const arr = new Array(+fieldCounter).fill()
     </>
 }
 
-const Position = ({value}) => {
-  console.log('dfgvre', value)
+const Position = ({coordinates}) => {
   return<>
-  <div className="form-floating" style={{width: '25%'}}>
-  <textarea className="form-control" value={value.col + value.row}></textarea>
-</div>
+  <h1>{coordinates.col + coordinates.row}</h1>
+  {/* <div className="form-floating" style={{width: '25%'}}>
+  <textarea className="form-control" value={coordinates.col + ' ' + coordinates.row}></textarea>
+</div> */}
   </>
 }
