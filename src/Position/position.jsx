@@ -1,6 +1,7 @@
 import React from "react";
 
 export const Position = ({ coordinates }) => {
+  console.log(coordinates.state)
   return (
     <>
       <div className="card overflow-auto" style={{height: '300px'}}>

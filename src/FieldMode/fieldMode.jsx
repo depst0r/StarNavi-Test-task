@@ -11,6 +11,10 @@ export const FieldMode = ({ selection }) => {
   const [fieldCounter, setFieldCounter] = useState(0);
   const [position, setPosition] = useState([]);
 
+const clearFieldPosition = () => {
+  setPosition([])
+}
+
   const handleFielValue = () => {
     setFieldCounter(selection);
   };
@@ -18,8 +22,6 @@ export const FieldMode = ({ selection }) => {
   const changePosition = (row, col) => setPosition([...position, { row, col }]);
 
   const arr = new Array(+fieldCounter).fill();
-
-console.log(position)
 
   return (
     <>
@@ -37,6 +39,15 @@ console.log(position)
           onClick={() => handleFielValue()}
         >
           START
+        </button>
+        </div>
+        <div className="order-5 p-2 bd-highlight">
+        <button
+          type="button"
+          className="btn btn-outline-info btn-sm"
+          onClick={() => clearFieldPosition()}
+        >
+          CLEAR POSITION
         </button>
       </div>
       <div className="order-3 p-2 bd-highlight">
