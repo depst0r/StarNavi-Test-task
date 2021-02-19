@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FieldMode } from "./FieldMode/fieldMode";
-import "./style.css";
+import "./app.css";
 
 export const App = () => {
   const [mode, setMode] = useState(null);

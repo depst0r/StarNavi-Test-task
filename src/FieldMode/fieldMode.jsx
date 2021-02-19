@@ -19,10 +19,16 @@ export const FieldMode = ({ selection }) => {
 
   const arr = new Array(+fieldCounter).fill();
 
+console.log(position)
+
   return (
     <>
       <div className="order-4 p-2 bd-highlight">
-        <Position coordinates={position} />
+        {position.length !== 0 ? (
+          <Position coordinates={position} />
+        ) : (
+          null
+        )}
       </div>
       <div className="order-2 p-2 bd-highlight">
         <button
