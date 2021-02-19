@@ -46,6 +46,7 @@ const clearFieldPosition = () => {
           type="button"
           className="btn btn-outline-info btn-sm"
           onClick={() => clearFieldPosition()}
+          disabled={position.length === 0 ? (true) : (false)}
         >
           CLEAR POSITION
         </button>
