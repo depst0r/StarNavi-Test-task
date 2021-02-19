@@ -17,8 +17,9 @@ export const App = () => {
       <div className="container">
         <div className="row">
           <div className="d-flex flex-nowrap bd-highlight justify-content-center">
-                     <FieldMode selection={selectChoice} />
-  <div className="order-1 p-2 bd-highlight"> <select
+            <FieldMode selection={selectChoice} />
+            <div className="order-1 p-2 bd-highlight">
+              <select
                 className="form-select form-select-sm"
                 onChange={e => setSelectChoice(e.target.value)}
                 aria-label="form-select-sm example"
@@ -33,8 +34,9 @@ export const App = () => {
                       </option>
                     ))
                   : null}
-              </select></div>
-</div>
+              </select>
+            </div>
+          </div>
         </div>
       </div>
     </>
