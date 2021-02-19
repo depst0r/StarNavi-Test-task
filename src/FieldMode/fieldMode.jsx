@@ -44,7 +44,7 @@ const clearFieldPosition = () => {
         <div className="order-5 p-2 bd-highlight">
         <button
           type="button"
-          className="btn btn-outline-info btn-sm"
+          className="btn btn-outline-secondary btn-sm"
           onClick={() => clearFieldPosition()}
           disabled={position.length === 0 ? (true) : (false)}
         >
