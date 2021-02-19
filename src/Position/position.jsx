@@ -7,7 +7,6 @@ const overflove = {
 };
 
 export const Position = ({ coordinates }) => {
-
   return (
     <>
       <div className="card" style={overflove}>
