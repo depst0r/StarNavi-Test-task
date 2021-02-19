@@ -34,14 +34,14 @@ export const FieldMode = ({ selection }) => {
         </button>
       </div>
       <div className="order-3 p-2 bd-highlight">
-        {arr.map((res, i) => {
+        {arr?.map((res, i) => {
           return (
-            <div className="d-flex" key={`Row-item ${i}`.toString()} data-row={`row - ${i + 1}`}>
-              {arr.map((res, j) => {
+            <div className="d-flex" key={`Row-item ${i}`} data-row={`row - ${i + 1}`}>
+              {arr?.map((res, j) => {
                 return (
                   <>
                     <div
-                      key={`Col-item ${j}`.toString()}
+                      key={`Col-item ${j}`}
                       className="border border-3"
                       style={squareStyle}
                       data-col={`col - ${j + 1}`}
