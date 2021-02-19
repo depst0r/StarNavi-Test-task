@@ -27,7 +27,7 @@ export const FieldMode = ({ selection }) => {
       <div className="order-2 p-2 bd-highlight">
         <button
           type="button"
-          className="btn btn-info"
+          className="btn btn-outline-info btn-sm"
           onClick={() => handleFielValue()}
         >
           START
