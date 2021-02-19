@@ -9,6 +9,7 @@ export const Position = ({ coordinates }) => {
           {coordinates
             ? coordinates.map((res, k) => (
                 <li
+                  style={{color: '#929ba5'}}
                   className="list-group-item"
                   key={k}
                 >{`${res.col} ${res.row}`}</li>
