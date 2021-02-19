@@ -1,14 +1,9 @@
 import React from "react";
 
-const overflove = {
-  overflow: "auto",
-  height: "300px",
-};
-
 export const Position = ({ coordinates }) => {
   return (
     <>
-      <div className="card" style={overflove}>
+      <div className="card overflow-auto" style={{height: '300px'}}>
         <div className="card-header">COORDINATES</div>
         <ul className="list-group list-group-flush">
           {coordinates
