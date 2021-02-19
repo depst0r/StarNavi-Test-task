@@ -11,9 +11,9 @@ export const FieldMode = ({ selection }) => {
   const [fieldCounter, setFieldCounter] = useState(0);
   const [position, setPosition] = useState([]);
 
-const clearFieldPosition = () => {
-  setPosition([])
-}
+  const clearFieldPosition = () => {
+    setPosition([]);
+  };
 
   const handleFielValue = () => {
     setFieldCounter(selection);
@@ -26,11 +26,7 @@ const clearFieldPosition = () => {
   return (
     <>
       <div className="order-4 p-2 bd-highlight">
-        {position.length !== 0 ? (
-          <Position coordinates={position} />
-        ) : (
-          null
-        )}
+        {position.length !== 0 ? <Position coordinates={position} /> : null}
       </div>
       <div className="order-2 p-2 bd-highlight">
         <button
@@ -40,13 +36,13 @@ const clearFieldPosition = () => {
         >
           START
         </button>
-        </div>
-        <div className="order-5 p-2 bd-highlight">
+      </div>
+      <div className="order-5 p-2 bd-highlight">
         <button
           type="button"
           className="btn btn-outline-secondary btn-sm"
           onClick={() => clearFieldPosition()}
-          disabled={position.length === 0 ? (true) : (false)}
+          disabled={position.length === 0 ? true : false}
         >
           CLEAR POSITION
         </button>
@@ -54,7 +50,11 @@ const clearFieldPosition = () => {
       <div className="order-3 p-2 bd-highlight">
         {arr?.map((res, i) => {
           return (
-            <div className="d-flex" key={`Row-item ${i}`} data-row={`row - ${i + 1}`}>
+            <div
+              className="d-flex"
+              key={`Row-item ${i}`}
+              data-row={`row - ${i + 1}`}
+            >
               {arr?.map((res, j) => {
                 return (
                   <>
