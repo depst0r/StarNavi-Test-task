@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FieldMode } from './FieldMode/fieldMode';
+import { FieldMode } from "./FieldMode/fieldMode";
 import "./style.css";
 
 export const App = () => {
@@ -16,11 +16,11 @@ export const App = () => {
     <>
       <div className="container">
         <div className="row">
-          <div className="wrapper">
-            <div className="header d-flex">
-              <select
-                className="form-select form-select-sm w-25"
-                onChange={(e) => setSelectChoice(e.target.value)}
+          <div class="d-flex flex-nowrap bd-highlight">
+                     <FieldMode selection={selectChoice} />
+  <div class="order-1 p-2 bd-highlight"> <select
+                className="form-select form-select-sm"
+                onChange={e => setSelectChoice(e.target.value)}
                 aria-label="form-select-sm example"
               >
                 <option defaultValue value={0}>
@@ -33,10 +33,8 @@ export const App = () => {
                       </option>
                     ))
                   : null}
-              </select>
-            </div>
-            <FieldMode selection={selectChoice} />
-          </div>
+              </select></div>
+</div>
         </div>
       </div>
     </>
