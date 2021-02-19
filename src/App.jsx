@@ -7,7 +7,7 @@ export const App = () => {
   const [selectChoice, setSelectChoice] = useState(0);
 
   useEffect(() => {
-    fetch("http://demo1030918.mockable.")
+    fetch("http://demo1030918.mockable.io/")
       .then((res) => res.json())
       .then((res) => setMode(res))
       .catch(err => err.TypeError = alert('The development server has disconnected, Refresh the page if necessary'))
